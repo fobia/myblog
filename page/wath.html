@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: page
+title: Wat
 ---
 
 <div class="home">
@@ -12,7 +13,7 @@ layout: default
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
         <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }} - {{page.id}}</a>
         </h2>
       </li>
     {% endfor %}

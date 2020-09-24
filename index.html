@@ -18,6 +18,24 @@ layout: default
     {% endfor %}
   </ul>
 
+
+  <h1 class="page-heading">Pages:</h1>
+
+  <ul class="post-list">
+    {% for page in site.pages %}
+      <li>
+        <span class="post-meta">{{ page.date | date: "%Y %b %-d" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }} / {{page.id}}  / {{page.name}} </a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+
+
   <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
   
   {% assign site_tags =  site.posts | map: "tags" | compact | uniq  %}
