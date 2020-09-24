@@ -15,6 +15,8 @@ destination:      _gh_pages
 
 baseurl: "/myblog" # the subpath of your site, e.g. /blog
 url: "http://fobia.github.io" # the base hostname & protocol for your site
+color-scheme: "#007bff" # the scheme can be any HEX code like "#00aa55"
+
 
 encoding:         UTF-8
 
@@ -26,6 +28,10 @@ description: > # this means to ignore newlines until "baseurl:"
   Тут только мои заметки, для личных нужд.
 
 
+  
+sass:
+  sass_dir: /assets/css/_sass
+  # style: compressed
 
 
 # Build settings
@@ -45,12 +51,16 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
+include:
+  - _pages
+
 exclude:
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
   - Gemfile
   - Gemfile.lock
+  - tmp/
   - node_modules/
   - vendor/bundle/
   - vendor/cache/
