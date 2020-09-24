@@ -20,12 +20,10 @@ encoding:         UTF-8
 
 
 # Site settings
-title: Your awesome title
+title: Мой личный блог
 # email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Тут только мои заметки, для личных нужд.
 
 
 
@@ -34,7 +32,9 @@ description: > # this means to ignore newlines until "baseurl:"
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
+#
 #
 
 # Exclude from processing.

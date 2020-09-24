@@ -4,12 +4,12 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1 class="page-heading">Посты:</h1>
 
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="post-meta">{{ post.date | date: "%Y %b %-d" }}</span>
 
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -18,8 +18,19 @@ layout: default
     {% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-11111111111111111
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+  
+  {% assign site_tags =  site.posts | map: "tags" | compact | uniq  %}
+  <ul >
+    {% for tag in site_tags %}
+      <li>
+        <span class="post-meta">{{ tag }}</span>
+      </li>
+    {% endfor %}
+  </ul>
 
-3333333
+
+<a href="https://learn.cloudcannon.com/jekyll-cheat-sheet/">Функции jekyl</a>
+<a href="https://github.com/pages-themes/cayman">cayman</a>
+
 </div>
