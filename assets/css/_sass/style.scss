@@ -1,10 +1,17 @@
-.navbar {
-  padding: 0;
-  @include media-query($on-palm) {
-    padding: 0.5rem 1rem;
-  }
-}
+/* Add your custom styles here */
+// .navbar {
+//   padding: 0;
+//   @include media-query($on-palm) {
+//     padding: 0.5rem 1rem;
+//   }
+// }
 
-.tall-nav {
-  padding: 1rem 1rem;
-}
+// .tall-nav {
+//   padding: 1rem 1rem;
+// }
+
+// .container  {
+//   width: 800px;
+//   margin: 0 auto;
+// }
+@import "bootstrap/bootstrap.scss";

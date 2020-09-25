@@ -15,6 +15,7 @@ destination:      _gh_pages
 
 baseurl: "/myblog" # the subpath of your site, e.g. /blog
 url: "http://fobia.github.io" # the base hostname & protocol for your site
+
 color-scheme: "#007bff" # the scheme can be any HEX code like "#00aa55"
 
 
@@ -35,13 +36,32 @@ sass:
 
 
 # Build settings
-theme: minima
+theme: null
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap 
 
-#
-#
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:title
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /posts/:title
+      content-type: post
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: post
+      content-type: notes
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -52,7 +72,7 @@ plugins:
 # their entries' file path in the `include:` list.
 #
 include:
-  - _pages
+  - _notes
 
 exclude:
   - .sass-cache/
