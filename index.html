@@ -6,32 +6,51 @@ layout: default
 
   <h1 class="page-heading">Посты:</h1>
 
-  <ul class="post-list">
+  <ul class="list-unstyled">
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%Y %b %-d" }}</span>
-
-        <h2>
+    <li class="media border-bottom mt-3">
+<!--      <img src="..." class="mr-3" alt="...">-->
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+        </h5>
+        <small>{{ post.date | date: "%Y %b %-d" }}</small>
+      </div>
+    </li>
+
     {% endfor %}
   </ul>
+
 
 
 <h1 class="page-heading">Notes:</h1>
-
-  <ul class="post-list">
+  <ul class="list-unstyled">
     {% for page in site.notes %}
-      <li>
-        <span class="post-meta">{{ page.date | date: "%Y %b %-d" }}</span>
+    <li class="media border-bottom mt-3">
+      <!--      <img src="..." class="mr-3" alt="...">-->
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">
+          <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+        </h5>
+        <small class="post-meta">{{ page.date | date: "%Y %b %-d" }}</small>
+      </div>
+    </li>
 
-        <h2>
-          <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }} / {{page.id}}  / {{page.name}} </a>
-        </h2>
-      </li>
     {% endfor %}
   </ul>
+
+
+<!--  <ul class="post-list">-->
+<!--    {% for page in site.notes %}-->
+<!--      <li>-->
+<!--        <span class="post-meta">{{ page.date | date: "%Y %b %-d" }}</span>-->
+
+<!--        <h2>-->
+<!--          <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }} / {{page.id}}  / {{page.name}} </a>-->
+<!--        </h2>-->
+<!--      </li>-->
+<!--    {% endfor %}-->
+<!--  </ul>-->
 
 
 
