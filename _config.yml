@@ -32,7 +32,7 @@ description: > # this means to ignore newlines until "baseurl:"
   
 sass:
   sass_dir: /assets/css/_sass
-  # style: compressed
+#  style: compressed
 
 
 # Build settings

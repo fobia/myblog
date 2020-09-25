@@ -34,7 +34,9 @@ layout: default
           <header class="post-header border-bottom mb-1">
             <h2 class="blog-post-title" itemprop="name headline">{{ page.title }}</h2>
             <p class="blog-post-meta">
-              <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%-d %b %Y" }}</time>
+
+              <time class="text-muted" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%-d %b %Y" }}</time>
+
               {% if page.author %} •
                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <span itemprop="name">{{ page.author }}</span>
@@ -55,8 +57,8 @@ layout: default
         <div class="col col-lg-2"></div>
         <div class="col-md-auto">
           <nav class="blog-pagination">
-            <a class="btn btn-outline-secondary disabled" href="{{page.previous.url}}" tabindex="-1" aria-disabled="true">previous</a>
-            <a class="btn btn-outline-primary" href="{{page.next.url}}">Next</a>
+            <a class="btn btn-outline-primary" href="{{ site.baseurl }}/{{page.previous.url}}" tabindex="-1" aria-disabled="true">previous</a>
+            <a class="btn btn-outline-primary" href="{{ site.baseurl }}/{{page.next.url}}">Next</a>
           </nav>
         </div>
         <div class="col col-lg-2"></div>

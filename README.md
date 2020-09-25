@@ -2,8 +2,12 @@
 
 [Синтаксис kramdown](https://kramdown.gettalong.org/syntax.html#tables)
 
-https://learn.cloudcannon.com/jekyll-cheat-sheet/
+[aa](https://learn.cloudcannon.com/jekyll-cheat-sheet/)
+
+[Редактор ОнЛайн](https://prose.io/) 
 
 
-https://jekyll-themes.com/simply-jekyll/
-
+Норм темы
+[ff](https://jekyll-themes.com/simply-jekyll/)
+[](ttps://jekyll-themes.com/just-the-docs/)
+[](https://jekyll-themes.com/minimaless/)
