@@ -15,8 +15,12 @@ destination:      _gh_pages
 
 baseurl: "/myblog" # the subpath of your site, e.g. /blog
 url: "http://fobia.github.io" # the base hostname & protocol for your site
+lang: "ru"
+twitter_username: TyurinD
+github_username:  tyurind
 
-color-scheme: "#007bff" # the scheme can be any HEX code like "#00aa55"
+# color-scheme: "#007bff" # the scheme can be any HEX code like "#00aa55"
+color-scheme: "mediumseagreen" # the scheme can be any HEX code like "#00aa55"
 
 
 encoding:         UTF-8
@@ -24,11 +28,12 @@ encoding:         UTF-8
 
 # Site settings
 title: Мой личный блог
-# email: your-email@domain.com
+email: fobia3d@mail.ru
 description: > # this means to ignore newlines until "baseurl:"
   Тут только мои заметки, для личных нужд.
 
-
+paginate: 10 # increase this value to reflect how many posts per page you want
+paginate_path: "/page:num/"
   
 sass:
   sass_dir: /assets/css/_sass
@@ -40,8 +45,28 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-sitemap 
+  - jekyll-gist
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-archives
+  - jekyll-paginate
 
+header_pages:
+  - _pages/blog.md
+  - _pages/about.md
+  - _pages/contact.md
+  - _pages/setup.md
+  - _pages/github.md
+
+minima:
+  date_format: " %-d %b, %Y"
+  social_links:
+    twitter: TyurinD
+    github: tyurind
+    telegram: fobia3d
+
+
+google_analytics: UA-NNNNNNNN-N
 
 collections:
   notes:
@@ -73,17 +98,23 @@ defaults:
 #
 include:
   - _notes
-
+  - _pages
 exclude:
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
   - Gemfile
-  - Gemfile.lock
-  - tmp/
-  - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-
+  - LICENSE
+  - log
+  - node_modules
+  - package.json
+  - Rakefile
+  - tmp
