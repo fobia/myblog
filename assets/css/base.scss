@@ -5,7 +5,9 @@
 @charset "utf-8";
 
 // Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+// $base-font-family: "Playfair Display", "Georgia", "Times New Roman", serif;
 $base-font-size:   16px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
@@ -55,38 +57,7 @@ $on-laptop:        800px;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 
-@import "syntax-highlighting";
-
-
-// $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-// https://themestr.app/theme
-
-/*! `Custom` Bootstrap 4 theme */
-// @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,700);
-$font-family-base:Open Sans;
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,700);
-$headings-font-family:Open Sans;
-
-$enable-grid-classes:true;
-$primary:#0366d6;
-$secondary:#a0b7bc;
-$success:#37bd74;
-$danger:#e8286b;
-$info:#7ebcfa;
-$warning:#ff9b37;
-$light:#eef0f2;
-$dark:#3c4055;
-$enable-gradients:false;
-$spacer:1rem;
-$border-width:1px;
-$btn-border-radius:.25rem;
-
-@import "bootstrap/bootstrap-reboot";
-@import "bootstrap/bootstrap-grid";
-@import "bootstrap/bootstrap";
-
-// @import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
-// @import "minima/initialize";
+@import "minima";
+// @import "syntax-highlighting";
 
 @import "style", "custom";

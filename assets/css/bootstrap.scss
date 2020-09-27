@@ -1,0 +1,31 @@
+---
+# main
+---
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-family-base: $base-font-family;
+$headings-font-family: $base-font-family;
+// :"Playfair Display", "Georgia", "Times New Roman", serif;
+
+$enable-grid-classes:true;
+$primary:#0366d6;
+$secondary:#a0b7bc;
+$success:#37bd74;
+$danger:#e8286b;
+$info:#7ebcfa;
+$warning:#ff9b37;
+$light:#eef0f2;
+$dark:#3c4055;
+$enable-gradients:false;
+$spacer:1rem;
+$border-width:1px;
+$btn-border-radius:.25rem;
+
+@import "bootstrap/bootstrap-reboot";
+@import "bootstrap/bootstrap-grid";
+@import "bootstrap/bootstrap";
+
+// @import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
+// @import "minima/initialize";
+
+// @import "minima";
+@import "style", "custom";
