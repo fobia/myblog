@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h3 class="page-heading">Посты:</h3>
+
+  <ul class="list-unstyled m-0 p-0">
+    {% for post in site.posts %}
+    <li class="media border-bottom mt-3">
+      <div class="media-body">
+        <small class="text-muted post-meta">{{ post.date | date: "%Y %b %-d" }}</small>
+        <h5 class="mt-0 mb-1">
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h5>
+        <p>
+        {{ post.content | strip_html | truncatewords:25 }}
+        </p>
+      </div>
+    </li>
+
+    {% endfor %}
+  </ul>
+<!-- 
+<h3 class="page-heading">Notes:</h3>
+  <ul class="list-unstyled">
+    {% for page in site.notes %}
+    <li class="media border-bottom mt-3">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">
+          <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+        </h5>
+        <small class="post-meta">{{ page.date | date: "%Y %b %-d" }}</small>
+      </div>
+    </li>
+
+    {% endfor %}
+  </ul> 
+-->
+
+</div>

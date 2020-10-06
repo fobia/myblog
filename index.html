@@ -1,76 +1,10 @@
 ---
-layout: default
+#
+# You don't need to edit this file, it's empty on purpose.
+# Edit the theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+#
+layout: blog
+redirect_from:
+  - /blog/
 ---
-
-<div class="home">
-
-  <h3 class="page-heading">Посты:</h3>
-
-  <ul class="list-unstyled m-0 p-0">
-    {% for post in site.posts %}
-    <li class="media border-bottom mt-3">
-<!--      <img src="..." class="mr-3" alt="...">-->
-      <div class="media-body">
-        <h5 class="mt-0 mb-1">
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h5>
-        <small class="text-muted">{{ post.date | date: "%Y %b %-d" }}</small>
-        <p>
-        {{ post.content | strip_html | truncatewords:25 }}
-        </p>
-      </div>
-    </li>
-
-    {% endfor %}
-  </ul>
-
-
-
-<h3 class="page-heading">Notes:</h3>
-  <ul class="list-unstyled">
-    {% for page in site.notes %}
-    <li class="media border-bottom mt-3">
-      <!--      <img src="..." class="mr-3" alt="...">-->
-      <div class="media-body">
-        <h5 class="mt-0 mb-1">
-          <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-        </h5>
-        <small class="post-meta">{{ page.date | date: "%Y %b %-d" }}</small>
-      </div>
-    </li>
-
-    {% endfor %}
-  </ul>
-
-
-<!--  <ul class="post-list">-->
-<!--    {% for page in site.notes %}-->
-<!--      <li>-->
-<!--        <span class="post-meta">{{ page.date | date: "%Y %b %-d" }}</span>-->
-
-<!--        <h2>-->
-<!--          <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }} / {{page.id}}  / {{page.name}} </a>-->
-<!--        </h2>-->
-<!--      </li>-->
-<!--    {% endfor %}-->
-<!--  </ul>-->
-
-
-
-
-  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
-  
-  <!-- {% assign site_tags =  site.posts | map: "tags" | compact | uniq  %}
-  <ul >
-    {% for tag in site_tags %}
-      <li>
-        <span class="post-meta">{{ tag }}</span>
-      </li>
-    {% endfor %}
-  </ul> -->
-
-
-<a href="https://learn.cloudcannon.com/jekyll-cheat-sheet/">Функции jekyl</a>
-<a href="https://github.com/pages-themes/cayman">cayman</a>
-
-</div>

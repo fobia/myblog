@@ -24,7 +24,7 @@ color-scheme: "mediumseagreen" # the scheme can be any HEX code like "#00aa55"
 
 
 encoding:         UTF-8
-
+lang: ru
 
 # Site settings
 title: Мой личный блог
@@ -32,9 +32,11 @@ email: fobia3d@mail.ru
 description: > # this means to ignore newlines until "baseurl:"
   Тут только мои заметки, для личных нужд.
 
+preview_posts: true
+permalink: /:title
 paginate: 10 # increase this value to reflect how many posts per page you want
 paginate_path: "/page:num/"
-  
+
 sass:
   sass_dir: /assets/css/_sass
 #  style: compressed
@@ -59,6 +61,7 @@ header_pages:
   - _pages/github.md
 
 minima:
+  # date_format: "%Y %b %-d"
   date_format: " %-d %b, %Y"
   social_links:
     twitter: TyurinD
@@ -97,7 +100,6 @@ defaults:
 # their entries' file path in the `include:` list.
 #
 include:
-  - _notes
   - _pages
 exclude:
   - vendor

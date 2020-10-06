@@ -142,3 +142,15 @@ padding: 0;
   float: right;
   line-height: initial;
 }
+
+.tag, badge {
+  @extend .badge;
+  @extend .badge-secondary;
+}
+
+a {
+  .tag  {
+    @extend a.badge;
+    @extend a.badge-secondary;
+  }
+}

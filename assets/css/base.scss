@@ -1,5 +1,5 @@
 ---
-# main
+# MAIN
 ---
 /** MAIN */
 @charset "utf-8";
@@ -13,7 +13,7 @@ $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+$spacing-unit:     20px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
@@ -24,14 +24,7 @@ $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-// Width of the content area
- $content-width: 800px;
+ $content-width: 830px;
  $on-palm: 600px;
  $on-laptop: 800px;
 
@@ -60,4 +53,27 @@ $on-laptop:        800px;
 @import "minima";
 // @import "syntax-highlighting";
 
-@import "style", "custom";
+// @import "style", "custom";
+.site-nav {
+  float: right;
+  line-height: initial;
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.page-link, .page-link:hover {
+  background-color: initial;
+}
+
+a {
+  text-decoration: underline;
+}
+
+.post-meta {
+  font-size: 10.4px;
+  color: #828282;
+}
