@@ -2,27 +2,41 @@
 layout: default
 ---
 
-<div class="blog">
+<div class="row blog">
 
   {{ content }}
 
-  <ul class="post-list">
-    {% for post in paginator.posts %}
-      <li>
-        {% assign date_format = site.minima.date_format | default: "%Y %b %-d" %}
-        <span class="post-meta">{{ post.date | date: date_format | default: "%Y %b %-d" }}</span>
+  <div class="col-md-8 blog-main">
 
-        <h2>
-          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
-        {% if site.preview_posts %}
-        <p>
-          {{ post.content | strip_html | truncatewords:25 }}
-        </p>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+
+    <ul class="list-group list-group-flush">
+      {% for post in paginator.posts %}
+        <li  class="list-group-item">
+          {% assign date_format = site.minima.date_format | default: "%Y %b %-d" %}
+          
+          <div class="card border-0">
+            <div class="card-body p-0">
+              <a class="post-link no-underline" href="{{ post.url | relative_url }}">
+                <h5 class="card-title">{{ post.title | escape }}</h5>
+              </a>
+              
+              {% if site.preview_posts %}
+              <p class="card-text">
+                {{ post.content | strip_html | truncatewords:25 }}
+              </p>
+              {% endif %}
+
+              <p class="card-text"><small class="text-muted">{{ post.date | date: date_format | default: "%Y %b %-d" }}</small></p>
+            </div>
+          </div>
+
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+
+  {% include sidebar.html %}
 
   {% if paginator.total_pages != 1 %}
     <div class="pagination">
@@ -47,6 +61,8 @@ layout: default
       {% endif %}
     </div>
   {% endif %}
+
+
 
 
 </div>

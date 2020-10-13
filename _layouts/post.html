@@ -15,8 +15,11 @@ layout: default
       {% endif %}</p>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
+  <div class="Box">
+  <div class="post-content p-2 markdown-body" itemprop="articleBody">
+    
+      {{ content }}
+  </div>
   </div>
 
   {% if page.tags != '' %}
