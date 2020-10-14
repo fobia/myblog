@@ -39,8 +39,10 @@ paginate_path: "/page:num/"
 
 sass:
   sass_dir: /assets/css/_sass
+  style: compact
+  sourcemap: true
 #  style: compressed
-
+  
 
 # Build settings
 theme: minima

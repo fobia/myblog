@@ -29,3 +29,13 @@ $btn-border-radius:.25rem;
 
 // @import "minima";
 // @import "style", "custom"; 
+
+
+a {
+    background: 0 0;
+    color: #4183C4;
+    text-decoration: none;
+}
+a:hover {
+    color: #0c5296;
+}
