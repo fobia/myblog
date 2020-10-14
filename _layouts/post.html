@@ -2,50 +2,44 @@
 layout: default
 ---
 
-<script src="https://vk.com/js/api/openapi.js?168" type="text/javascript"></script>
+<div class="row blog">
+  <div class="col-md-8 blog-main">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="post-header">
+        <h3 class="post-title" itemprop="name headline">
+          {{ page.title | escape }}
+        </h3>
+        <p class="post-meta">
+          <time
+            datetime="{{ page.date | date_to_xmlschema }}"
+            itemprop="datePublished"
+          >
+            {% assign date_format = site.minima.date_format | default: "%b %-d,
+            %Y" %} {{ page.date | date: date_format }}
+          </time>
+          {% if page.author %} •
+          <span
+            class="post-author"
+            itemprop="author"
+            itemscope
+            itemtype="http://schema.org/Person"
+            ><span itemprop="name">{{ page.author }}</span></span
+          >
+          {% endif %}
+        </p>
+      </header>
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="Box">
+        <div class="post-content p-2 markdown-body" itemprop="articleBody">
+          {{ content }}
+        </div>
+      </div>
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        {{ page.date | date: date_format }}
-      </time>
-      {% if page.author %}
-        • <span class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
-      {% endif %}</p>
-  </header>
-
-  <div class="Box">
-  <div class="post-content p-2 markdown-body" itemprop="articleBody">
-    
-      {{ content }}
+      {% if site.disqus.shortname %} {% include disqus_comments.html %} {% endif %}
+    </article>
   </div>
-  </div>
 
-  <div id="vk_comments"></div>
-    <script type="text/javascript">
-      VK.init({
-    apiId: 7627942,
-    onlyWidgets: true
-  });
-    VK.Widgets.Comments('vk_comments');
-    </script>
+  
+  {% include sidebar.html %}
 
-  {% if page.tags != '' %}
-  <div class="tags">
-    <i class="fa fa-tags"></i>
-    {% for tag in page.tags %}
-      {% assign count = site.tags[tag].size %}
-      <a href="{{site.baseurl}}/tag/{{ tag }}">
-        <span class="tag">{{ tag | escape }}{% if count != 1 %}<span class="tag-count">({{ count }})</span>{% endif %}</span></a>
-    {% endfor %}
-  </div>
-  {% endif %}
-
-  {% if site.disqus.shortname %}
-    {% include disqus_comments.html %}
-  {% endif %}
-</article>
+</div>

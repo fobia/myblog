@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: database
+tags: [database, linux]
 ---
 
 # Пометим запросы/команды чтоб не забыть
