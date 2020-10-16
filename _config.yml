@@ -122,3 +122,5 @@ exclude:
   - package.json
   - Rakefile
   - tmp
+  - blog-cli.sh
+  
