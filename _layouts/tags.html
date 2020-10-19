@@ -3,26 +3,45 @@ layout: default
 ---
 
 
-<div class="posts-container mx-auto px-3 py-5">
-  
-  <h3 class="page-heading">Посты:</h3>
-  
-  <!-- <h3>2020</h3> -->
-  <ul class="list mb-5">
-    {% for post in site.posts %}
-    <li>
-      <small class="text-muted">{{ post.date | date: "%Y %b %-d" }}</small>
-      <a class="ml-1 post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      <!-- <p>
-        {{ post.content | strip_html | truncatewords:25 }}
-        </p> -->
-    </li>
+<div class="container">
+  <div class="posts-container mx-auto px-3 py-5">
+
+    {% if page.tag %}
+    <h3 class="page-heading">#{{ page.tag }}</h3>
+    <ul class="list mb-5">
+      {% if site.tags[page.tag] %}
+      {% for post in site.tags[page.tag] %}
+      <li>
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        <small class="text-muted">{{ post.date | date: "%Y %b %-d" }}</small>
+        <a class="post-link ml-3" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+
+      </li>
+      {% endfor %}
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
+
+
+  {% if site.tags != '' %}
+  <h1>Tags</h1>
+
+  <div class="tags">
+    <i class="fa fa-tags"></i>
+    {% for tag_obj in site.tags %}
+    {% assign tag = tag_obj | first %}
+    {% assign count = site.tags[tag].size %}
+
+
+    <a class="badge badge-secondary" href="{{site.baseurl}}/tag/{{ tag }}">
+              <span class="tag">{{ tag }}
+                {% if count != 1 %}<span class="tag-count">({{ count }})</span>{% endif %}
+              </span>
+    </a>
     {% endfor %}
-  </ul>
-</div>
+  </div>
+  {% endif %}
 
-
-<a href="https://learn.cloudcannon.com/jekyll-cheat-sheet/">Функции jekyl</a>
-<a href="https://github.com/pages-themes/cayman">cayman</a>
 
 </div>

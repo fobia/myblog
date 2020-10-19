@@ -1,0 +1,9 @@
+---
+layout: null
+---
+
+{% assign site_tags = site.posts | map: "tags" | compact | uniq  %}
+{% for tag in site_tags %}
+{{ tag }}
+{% endfor %}
+

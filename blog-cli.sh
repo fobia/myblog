@@ -26,3 +26,6 @@ case "$_cmd" in
         echo "default"
     ;;
 esac
+
+
+#cat _posts/2020-09/folder/2020-09-21-welcome-to-jekyll.md | sed -n '/^tags:/p' | sed 's/tags://; s/\W/ /g'

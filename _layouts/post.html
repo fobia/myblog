@@ -33,9 +33,13 @@ layout: default
 
       <article class="blog-post " itemscope itemtype="http://schema.org/BlogPosting">
           <header class="post-header border-bottom mb-1">
-            <h2 class="blog-post-title" itemprop="name headline">{{ page.title }}</h2>
+            <h2 class="blog-post-title" itemprop="name headline">
+              {{ page.title }}
+            </h2>
             <p class="blog-post-meta">
-              <time class="text-muted" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%-d %b %Y" }}</time>
+              <time class="text-muted" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                {{ page.date | date: "%-d %b %Y" }}
+              </time>
             </p>
           </header>
 
@@ -68,15 +72,27 @@ layout: default
           </div>
 
 
+          {% if site.tags != '' %}
+          <h1>Tags</h1>
 
-          {% assign site_tags =  site.posts | map: "tags" | compact | uniq  %}
-          <div class="p-4">
-            <h4 class="">Tags</h4>
-            {% for tag in site_tags %}
-              <a class="mr-1" href="#">{{ tag }}</a>
+          <div class="tags">
+            <i class="fa fa-tags"></i>
+            {% for tag_obj in site.tags %}
+            {% assign tag = tag_obj | first %}
+            {% assign count = site.tags[tag].size %}
+
+
+            <a class="badge badge-secondary" href="{{site.baseurl}}/tag/{{ tag }}">
+              <span class="tag">{{ tag }}
+                {% if count != 1 %}<span class="tag-count">({{ count }})</span>{% endif %}
+              </span>
+            </a>
             {% endfor %}
-            </ol>
           </div>
+          {% endif %}
+
+
+
         </aside>
       <!-- /.blog-sidebar -->
     </div>
