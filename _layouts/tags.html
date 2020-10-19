@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+
+<div class="posts-container mx-auto px-3 py-5">
+  
+  <h3 class="page-heading">Посты:</h3>
+  
+  <!-- <h3>2020</h3> -->
+  <ul class="list mb-5">
+    {% for post in site.posts %}
+    <li>
+      <small class="text-muted">{{ post.date | date: "%Y %b %-d" }}</small>
+      <a class="ml-1 post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      <!-- <p>
+        {{ post.content | strip_html | truncatewords:25 }}
+        </p> -->
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<a href="https://learn.cloudcannon.com/jekyll-cheat-sheet/">Функции jekyl</a>
+<a href="https://github.com/pages-themes/cayman">cayman</a>
+
+</div>

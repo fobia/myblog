@@ -28,20 +28,14 @@ layout: default
 
 <main role="main" class="container" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="row mt-3">
-    <div class="col-md-12 blog-main">
+
+    <div class="col-md-8 blog-main">
 
       <article class="blog-post " itemscope itemtype="http://schema.org/BlogPosting">
           <header class="post-header border-bottom mb-1">
             <h2 class="blog-post-title" itemprop="name headline">{{ page.title }}</h2>
             <p class="blog-post-meta">
-
               <time class="text-muted" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%-d %b %Y" }}</time>
-
-              {% if page.author %} •
-                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                  <span itemprop="name">{{ page.author }}</span>
-                </span>
-              {% endif %}
             </p>
           </header>
 
@@ -66,26 +60,27 @@ layout: default
 
     </div><!-- /.blog-main -->
 
-<!-- 
-
-    <aside class="col-md-4 blog-sidebar">
-      <div class="p-4 mb-3 bg-light rounded">
-        <h4 class="font-italic">About</h4>
-        <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-      </div>
-
+    <div class="col-md-4">
+        <aside class="blog-sidebar">
+          <div class="p-4 mb-3 bg-light rounded">
+            <h4 class="font-italic">About</h4>
+            <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          </div>
 
 
-      {% assign site_tags =  site.posts | map: "tags" | compact | uniq  %}
-      <div class="p-4">
-        <h4 class="font-italic">Tags</h4>
-        <ol class="list-unstyled mb-0">
-        {% for tag in site_tags %}
-          <li><a href="#">{{ tag }}</a></li>
-        {% endfor %}
-        </ol>
-      </div>
-    </aside>/.blog-sidebar -->
+
+          {% assign site_tags =  site.posts | map: "tags" | compact | uniq  %}
+          <div class="p-4">
+            <h4 class="">Tags</h4>
+            {% for tag in site_tags %}
+              <a class="mr-1" href="#">{{ tag }}</a>
+            {% endfor %}
+            </ol>
+          </div>
+        </aside>
+      <!-- /.blog-sidebar -->
+    </div>
+
 
   </div><!-- /.row -->
 

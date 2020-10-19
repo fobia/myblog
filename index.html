@@ -2,28 +2,22 @@
 layout: default
 ---
 
-<div class="home">
-
+<div class="container">
+<div class="posts-container mx-auto px-3 py-5">
   <h3 class="page-heading">Посты:</h3>
 
-  <ul class="list-unstyled">
+  <ul class="list mb-5">
     {% for post in site.posts %}
-    <li class="media border-bottom mt-3">
-<!--      <img src="..." class="mr-3" alt="...">-->
-      <div class="media-body">
-        <h5 class="mt-0 mb-1">
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h5>
-        <small class="text-muted">{{ post.date | date: "%Y %b %-d" }}</small>
-        <p>
-        {{ post.content | strip_html | truncatewords:25 }}
-        </p>
-      </div>
+
+    <li>
+      <small class="text-muted">{{ post.date | date: "%Y %b %-d" }}</small>
+      <a class="post-link ml-3" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
     </li>
+
 
     {% endfor %}
   </ul>
-
+</div>
 
 <!--
 <h3 class="page-heading">Notes:</h3>
