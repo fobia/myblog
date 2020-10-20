@@ -14,13 +14,14 @@ destination:      _gh_pages
 #port:             4001
 
 baseurl: "/myblog" # the subpath of your site, e.g. /blog
-url: "http://fobia.github.io" # the base hostname & protocol for your site
+url: "https://fobia.github.io" # the base hostname & protocol for your site
 
 color-scheme: "#007bff" # the scheme can be any HEX code like "#00aa55"
 
 
 encoding:         UTF-8
 
+repository: https://github.com/fobia/myblog
 
 # Site settings
 title: Мой личный блог
