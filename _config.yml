@@ -23,6 +23,7 @@ encoding:         UTF-8
 
 repository: https://github.com/fobia/myblog
 
+locale: RU_ru
 # Site settings
 title: Мой личный блог
 # email: your-email@domain.com

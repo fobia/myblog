@@ -41,6 +41,16 @@ layout: default
                 {{ page.date | date: "%-d %b %Y" }}
               </time>
             </p>
+
+
+            <div class="tags">
+              {% if page.tags != '' %}
+              <i class="fa fa-tags"></i>
+              {% for tag in page.tags %}
+                <a class="text-info" href="{{site.baseurl}}/tag/{{ tag }}">{{ tag }}</a>
+              {% endfor %}
+              {% endif %}
+            </div>
           </header>
 
           <div class="post-content" itemprop="articleBody">
