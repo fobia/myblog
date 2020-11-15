@@ -2,7 +2,7 @@
 
 [Синтаксис kramdown](https://kramdown.gettalong.org/syntax.html#tables)
 
-[aa](https://learn.cloudcannon.com/jekyll-cheat-sheet/)
+[Шпаргалка по Jekyll](https://learn.cloudcannon.com/jekyll-cheat-sheet/)
 
 [Редактор ОнЛайн](https://prose.io/) 
 

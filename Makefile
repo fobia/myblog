@@ -24,9 +24,9 @@
 
 # Установите директории проектов (относительные или абсолютные пути)
 # Для Windows пути нужно указывать с разделителем nix "/",
-#   APP_DIR=C:/Users/tyurind/Documents/app
+#   APP_DIR=C:/Users/user/Documents/app
 #
-#APP_DIR=/home/tyurin/Projects/SmartLeads/rasprodaga
+#APP_DIR=/home/user/Projects/app
 ## ===============================================
 
 #CMD_PREFIX := $(shell echo $$(test "$$(expr substr $$(uname -s) 1 5)" = "MINGW" && echo "winpty" || echo "") )

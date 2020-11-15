@@ -17,26 +17,33 @@ tags: [database, linux]
 - `PGPASSWORD` действует так же, как параметр соединения password. 
 
 
-Выгрузка БД в указаную директорию спец. формате файлами. Самый быстрый и надежный способ бэкапа. Или же выгрузка одной таблицы.
+Выгрузка БД в указаную директорию спец. формате файлами. Самый быстрый и надежный способ бэкапа
 
 ```
 pg_dump -v --format=d -j 5 -f "$OUT_DIR" -U $PGUSER -d $PGDATABASE [..$ARGS]
+```
+
+, или же выгрузка одной таблицы
+```
 pg_dump -v --format=d -j 5 -f "$OUT_DIR" -U $PGUSER -d $PGDATABASE -t $TABLENAME [..$ARGS]
 ```
 
-Для востоновления, полное
+Для востоновления
 ```
+# // полное
 pg_restore -U $PGUSER --format=d -d $PGDATABASE --disable-triggers -v $FILE
-# // только данные не создаваяя схем
+# // только данные не создавая схем
 pg_restore -U $PGUSER --format=d -d $PGDATABASE --disable-triggers -v -a $FILE
+
 # // или для одной таблицы (аналогично)
 pg_restore -U $PGUSER --format=d -d $PGDATABASE --disable-triggers -v -t $TABLE $FILE
+# // ... не создавая таблицу
 pg_restore -U $PGUSER --format=d -d $PGDATABASE --disable-triggers -v -a -t $TABLE $FILE
 ```
 
 Посмотреть какие есть таблицы в директории
 ```
- pg_restore --list dump-rasprodaga-tables-origin | grep -i 'table data' | awk '{print $7}'
+ pg_restore --list /path/to/dir | grep -i 'table data' | awk '{print $7}'
 ```
 
 
