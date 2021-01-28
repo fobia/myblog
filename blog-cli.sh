@@ -6,7 +6,7 @@ cd "${DIR}"
 
 _create_post() {
     mkdir -p "_posts/$(date +%Y-%m)"
-    local _title=$(python -c "import re; import cyrtranslit; import sys; print(re.sub('[ ]', '-', cyrtranslit.to_latin(' '.join(sys.argv[1:]), 'ru')).lower());" "$*")
+    local _title=$(python3 -c "import re; import cyrtranslit; import sys; print(re.sub('[ ]', '-', cyrtranslit.to_latin(' '.join(sys.argv[1:]), 'ru')).lower());" "$*")
     local _file="_posts/$(date +%Y-%m)/$(date +%Y-%m-%d)-${_title}.md"
     echo $_file
     touch $_file
