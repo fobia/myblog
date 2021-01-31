@@ -128,3 +128,77 @@ I’ve also created a new script called “toolbox” to this directory, that co
 #!/bin/bash
 ~/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox
 ```
+
+
+### Remote ssh server
+
+
+1. Качаем с официального сайта или напрямую с SourceForge
+2. Устанавливаем
+3. Настраиваем, запускаем Пуск -> Все программы -> Xming ->XLaunch
+
+Выбираем Multiple windows и устанавливаем Display number таким же, как было настроено в PuTTY:
+
+Нажимаем Далее и выбираем Start no client, тогда Xming «поселится» в трее и будет ждать, пока мы с консоли PuTTY запустим какое-нибудь графическое приложение.
+
+Чтобы каждый раз не лезть в XLaunch, можно в свойства ярлыка Xming дописать нужные параметры `"C:\Program Files\Xming\Xming.exe" :0 -clipboard -multiwindow`
+
+
+Борьба с шрифтами проста. Дописываем в окне Additional Parameters XLaunch’а в строку Additional parameters for Xming параметр -dpi 96 или его же в свойства ярлыка. Число в параметре выбираем под свои глаза и монитор  `"C:\Program Files\Xming\Xming.exe" :0 -clipboard -multiwindow  -dpi 96`
+
+
+На серваке:
+
+```
+sudo apt-get install xauth -y
+```
+
+Правим конфиг `vim /etc/ssh/sshd_config`
+
+```
+X11Forwarding yes
+X11DisplayOffset 10
+X11UseLocalhost no
+```
+
+
+Перезапускаем демон или рестартируем сервер.
+
+```
+# systemctl restart ssh.service
+```
+
+
+Если надо, открываем порты на файерволе:
+Для переопределения дисплея:
+
+```
+iptables -A INPUT -s x.x.x.x/xx -p tcp --dport 6000 -j ACCEPT
+iptables -A OUTPUT -s x.x.x.x/xx -p tcp --sport 6000 -j ACCEPT
+```
+
+
+Вместо x.x.x.x/xx подставить нужную подсеть
+
+```
+sudo iptables -A INPUT -s 192.168.0.1/24 -p tcp --dport 6000 -j ACCEPT
+sudo iptables -A OUTPUT -s 192.168.0.1/24 -p tcp --sport 6000 -j ACCEPT
+```
+
+
+Теперь конектимся c флагом `-X`
+
+```
+$ ssh -X remote_ssh_user@remote_server
+```
+
+
+Если не работает, проверяем переменую `DISPLAY`, она должна существовать
+
+```
+echo $DISPLAY
+# localhost:10.0
+```
+
+
+export DISPLAY=192.168.0.160:3.02021-01-3
