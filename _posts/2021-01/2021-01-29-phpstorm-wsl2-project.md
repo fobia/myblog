@@ -2,7 +2,7 @@
 layout: post
 title: PHPstorm WSL2 Project
 category: Media
-tags: [WSL2, PHPStorm]
+tags: [WSL2, PHPStorm, linux]
 summary: Запускаем PHPStorm из под WSL2
 ---
 
