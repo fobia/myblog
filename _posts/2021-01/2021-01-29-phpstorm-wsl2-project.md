@@ -201,4 +201,8 @@ echo $DISPLAY
 ```
 
 
-export DISPLAY=192.168.0.160:3.02021-01-3
+
+### Сылки
+
+- [Xming X Server for Windows](https://sourceforge.net/projects/xming/)
+- [Xming Notes](http://www.straightrunning.com/XmingNotes/)
