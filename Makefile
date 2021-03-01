@@ -75,6 +75,8 @@ commit: ## Сбилдить проект
 
 
 build: ## Сбилдить проект
-	bundle exec jekyll build
+	# bundle exec jekyll build
+	bash blog-cli.sh tags -c
+	git commit -am '----'
 	git push origin
 

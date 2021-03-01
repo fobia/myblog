@@ -12,6 +12,27 @@ _create_post() {
     touch $_file
 }
 
+_generate_tags() {
+    local _git_commit=
+    while getopts "ch" opt; do
+        case $opt in
+            c) _git_commit="1";;
+            h) echo " -c  git add file"; exit ;;
+        esac
+    done
+
+
+    grep -h -R -o -P 'tags: .*' _posts/ | sed 's/tags: //g; s/\[\|\]//g; s/[, ]/\n/g; s/\n\n/\n/g; s/\r//g; s/ //g' | sort | uniq | while read t; do
+        if [[ ! -f "tag/${t}.md" ]]; then 
+            sed "s/{tag}/${t}/g" tag/_template.md > "tag/${t}.md"
+            if [[ "$_git_commit" == "1" ]]; then
+                git add "tag/${t}.md"
+            fi
+            echo $t
+        fi
+    done
+}
+
 _cmd="$1"
 shift
 
@@ -19,8 +40,8 @@ case "$_cmd" in
     post)
         _create_post "$@"
     ;;
-    2|3)
-        echo "case 2 or 3"
+    tags)
+        _generate_tags "$@"
     ;;
     *)
         echo "default"
