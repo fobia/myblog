@@ -1,6 +1,8 @@
 FROM jekyll/jekyll:3.8
 
 RUN gem install bundler
+RUN apk add python3 \
+    && pip3 install cyrtranslit
 
 COPY Gemfile /srv/jekyll/Gemfile
 COPY Gemfile.lock /srv/jekyll/Gemfile.lock
