@@ -1,4 +1,8 @@
 
+```
+docker build -t myblog .
+docker run -it --rm -p 4000:4000 -v $(pwd):/srv/jekyll myblog make start
+```
 
 [Синтаксис kramdown](https://kramdown.gettalong.org/syntax.html#tables)
 

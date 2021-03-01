@@ -10,8 +10,8 @@ highlighter:      rouge
 destination:      _gh_pages
 # host:             127.0.0.1
 
-#host:             0.0.0.0
-#port:             4001
+host:             0.0.0.0
+port:             4000
 
 baseurl: "/myblog" # the subpath of your site, e.g. /blog
 url: "https://fobia.github.io" # the base hostname & protocol for your site
