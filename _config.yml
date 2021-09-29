@@ -57,6 +57,7 @@ defaults:
     values:
       layout: post
       permalink: /posts/:title
+            # permalink: /posts:path
       content-type: post
   - scope:
       path: ""
@@ -74,7 +75,7 @@ defaults:
 # their entries' file path in the `include:` list.
 #
 include:
-  - _notes
+  # - _notes
 
 exclude:
   - .sass-cache/

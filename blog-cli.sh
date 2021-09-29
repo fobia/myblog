@@ -4,12 +4,41 @@ DIR=$( cd $( dirname "${0}" ) && pwd )
 cd "${DIR}"
 ## ======================================
 
+_help() {
+    cat <<EOF
+Usage: ${0} <cmd>
+
+    post <name>  - создать новый пост и сформировать файл
+    tags [-c]    - сгенерировать теги. С флагом -с добовляет в git
+
+EOF
+}
+
+
+
 _create_post() {
+    if [ -z "$*" ]; then
+        _help
+        return 1
+    fi
+    local _title="$*"
     mkdir -p "_posts/$(date +%Y-%m)"
-    local _title=$(python3 -c "import re; import cyrtranslit; import sys; print(re.sub('[ ]', '-', cyrtranslit.to_latin(' '.join(sys.argv[1:]), 'ru')).lower());" "$*")
-    local _file="_posts/$(date +%Y-%m)/$(date +%Y-%m-%d)-${_title}.md"
+    local _name=$(python3 -c "import re; import cyrtranslit; import sys; print(re.sub('[ ]', '-', cyrtranslit.to_latin(' '.join(sys.argv[1:]), 'ru')).lower());" "$*")
+    local _file_default="_posts/default.md"
+    local _file="_posts/$(date +%Y-%m)/$(date +%Y-%m-%d)-${_name}.md"
     echo $_file
-    touch $_file
+    # cp $_file_default $_file
+    # touch $_file
+    cat > $_file <<EOF
+---
+layout: post
+title:  "${_title}"
+tags: [doc]
+---
+
+Default content
+
+EOF
 }
 
 _generate_tags() {
@@ -44,7 +73,7 @@ case "$_cmd" in
         _generate_tags "$@"
     ;;
     *)
-        echo "default"
+        _help
     ;;
 esac
 
