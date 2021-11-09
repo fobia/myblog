@@ -64,11 +64,11 @@ all:
 	help
 # -----------------
 
-start: ## Сбилдить проект
+start: ## Запустить
 	bundle exec jekyll serve -i
 
 
-commit: ## Сбилдить проект
+commit: ## Закомитить все
 	git commit -am '----'
 	git push origin
 
@@ -80,3 +80,8 @@ build: ## Сбилдить проект
 	git commit -am '----'
 	git push origin
 
+docker-build: ## Сбилдить docker
+	docker build -t myblog .
+
+docker-start: ## Запустить через docker
+	docker run -it --rm -p 4000:4000 -v $$(pwd):/srv/jekyll myblog make start
