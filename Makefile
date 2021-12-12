@@ -67,6 +67,9 @@ all:
 start: ## Запустить
 	bundle exec jekyll serve -i
 
+tags: ## Сгенерировать теги
+	bash blog-cli.sh tags
+
 
 commit: ## Закомитить все
 	git commit -am '----'
