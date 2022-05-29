@@ -634,7 +634,7 @@ export PS1="[\[$BIPurple\]\w\[$ColorReset\]] \[$BGreen\]\u\[$Blue\]@\H
 
 ![](/images/bash-command-shell-prompt/case_3.png)
 
-{% highlight bash %}
+{% highlight bash linenos %}
 export PS1="\n\[$BIPurple\](\[$BIBlue\]\@\[$BIPurple\])—(\[$BIBlue\]jobs:
 \j\[$BIPurple\])—(\[$BIBlue\]\u@\h\[$BIPurple\])—>\n(\[$BIGreen\]\w
 \[$BIPurple\])—(\[$BIGreen\]$(ls -1 | wc -l) files, $(ls -lah | 
@@ -645,7 +645,7 @@ grep -m 1 total | sed 's/total //')\[$BIPurple\])\[$ColorReset\] >> "
 
 ![](/images/bash-command-shell-prompt/case_4.png)
 
-{% highlight bash %}
+{% highlight bash linenos %}
 export PS1=export PS1="[\u@\h \W]\$ \[$ColorReset\]"
 export PROMPT_COMMAND='if [[ "$?" -eq "0" ]]; 
 then echo -ne "$BGreen"; else echo -ne "$BRed"; fi;'
@@ -655,11 +655,11 @@ then echo -ne "$BGreen"; else echo -ne "$BRed"; fi;'
 
 ![](/images/bash-command-shell-prompt/case_5.png)
 
-{% highlight bash %}
+```bash
 export PS1="\[$BGreen\]\u-\h:\[$BBlue\]\w \[$Purple\]
 \$(git branch --no-color 2> /dev/null | 
 sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')\[$ColorReset\]\$ "
-{% endhighlight %}
+```
 
 ## Послесловие
 

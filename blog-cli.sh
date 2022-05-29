@@ -24,6 +24,7 @@ _create_post() {
     local _title="$*"
     mkdir -p "_posts/$(date +%Y-%m)"
     local _name=$(python3 -c "import re; import cyrtranslit; import sys; print(re.sub('[ ]', '-', cyrtranslit.to_latin(' '.join(sys.argv[1:]), 'ru')).lower());" "$*")
+    _name="${_name/\'/}"
     local _file_default="_posts/default.md"
     local _file="_posts/$(date +%Y-%m)/$(date +%Y-%m-%d)-${_name}.md"
     echo $_file
@@ -49,15 +50,21 @@ _generate_tags() {
             h) echo " -c  git add file"; exit ;;
         esac
     done
-
+    
     # grep -h -R -o -P
     grep -h -r -o -E 'tags: .*' _posts/ | sed 's/tags: //g; s/\[\|\]//g; s/[, ]/\n/g; s/\n\n/\n/g; s/\r//g; s/ //g' | sort | uniq | while read t; do
-        if [[ ( ! -f "tag/${t}.md" ) && ( "${t}" != "" ) ]]; then 
-            sed "s/{tag}/${t}/g" tag/_template.md > "tag/${t}.md"
-            if [[ "$_git_commit" == "1" ]]; then
-                git add "tag/${t}.md"
-            fi
-            echo $t
+        if [[ ( "${t}" != "" ) ]]; then
+          if [[ ( ! -f "tag/${t}.md" ) && ( "${t}" != "" ) ]]; then 
+              sed "s/{tag}/${t}/g" tag/_template.md > "tag/${t}.md"
+              if [[ "$_git_commit" == "1" ]]; then
+                  echo "git add tag/${t}.md"
+                  git add "tag/${t}.md"
+              fi
+              echo $t
+          fi
+          if [[ "$_git_commit" == "1" ]]; then
+            git add "tag/${t}.md"
+          fi
         fi
     done
 }
