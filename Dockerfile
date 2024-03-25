@@ -1,6 +1,6 @@
 FROM jekyll/jekyll:3.8
 
-RUN gem install bundler
+RUN gem install bundler -v 2.4.22
 RUN apk add python3 \
     && pip3 install cyrtranslit
 
