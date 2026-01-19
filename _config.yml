@@ -90,6 +90,10 @@ exclude:
   - .jekyll-cache/
   - gemfiles/
   - Gemfile
+  - Dockerfile
+  - blog-cli.sh
+  - Makefile
+  - README.md
   - Gemfile.lock
   - tmp/
   - node_modules/

@@ -75,8 +75,6 @@ commit: ## Закомитить все
 	git commit -am '----'
 	git push origin
 
-
-
 build: ## Сбилдить проект
 	# bundle exec jekyll build
 	bash blog-cli.sh tags -c
@@ -88,7 +86,7 @@ docker-build: ## Сбилдить docker
 
 
 docker-tags: ## Сбилдить docker
-	docker run -it --rm -p 4000:4000 -v $$(pwd):/srv/jekyll myblog 	bash blog-cli.sh tags -c
+	docker run -it --rm  -v $$(pwd):/srv/jekyll myblog 	bash blog-cli.sh tags -c
 
 
 docker-start: ## Запустить через docker
