@@ -4,6 +4,12 @@ docker build -t myblog .
 docker run -it --rm -p 4000:4000 -v $(pwd):/srv/jekyll myblog make start
 ```
 
+
+```
+docker run -it --rm -v $(pwd):/srv/jekyll myblog bash blog-cli.sh post "новый мой пост"
+```
+
+
 [Синтаксис kramdown](https://kramdown.gettalong.org/syntax.html#tables)
 
 [Шпаргалка по Jekyll](https://learn.cloudcannon.com/jekyll-cheat-sheet/)

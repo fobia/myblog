@@ -27,7 +27,12 @@ _create_post() {
     _name="${_name/\'/}"
     local _file_default="_posts/default.md"
     local _file="_posts/$(date +%Y-%m)/$(date +%Y-%m-%d)-${_name}.md"
+    
+    if [[ -f $_file ]]; then 
+      _file="_posts/$(date +%Y-%m)/$(date +%Y-%m-%d)-${_name}.$(date +%s).md"
+    fi
     echo $_file
+
     # cp $_file_default $_file
     # touch $_file
     cat > $_file <<EOF
