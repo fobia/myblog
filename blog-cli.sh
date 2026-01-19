@@ -57,7 +57,7 @@ _generate_tags() {
     done
     
     # grep -h -R -o -P
-    grep -h -r -o -E 'tags: .*' _posts/ | sed 's/tags: //g; s/\[\|\]//g; s/[, ]/\n/g; s/\n\n/\n/g; s/\r//g; s/ //g' | sort | uniq | while read t; do
+    grep -h -r -o -E 'tags: .*' _posts/ | sed 's/tags: //g; s/\[\|\]//g; s/[, ]/\n/g; s/\n\n/\n/g; s/\r//g; s/ //g' | sed 's/\[//g; s/\]//g' | sort | uniq | while read t; do
         if [[ ( "${t}" != "" ) ]]; then
           if [[ ( ! -f "tag/${t}.md" ) && ( "${t}" != "" ) ]]; then 
               sed "s/{tag}/${t}/g" tag/_template.md > "tag/${t}.md"
