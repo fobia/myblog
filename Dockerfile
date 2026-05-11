@@ -1,8 +1,10 @@
-FROM jekyll/jekyll:4
+FROM jekyll/jekyll:4.2.2
 
 RUN gem install bundler -v 2.6.9
 RUN apk add python3 py3-pip \
     && pip3 install cyrtranslit
+RUN gem install webrick 
+# && jekyll serve --livereload
 
 COPY Gemfile /srv/jekyll/Gemfile
 # COPY Gemfile.lock /srv/jekyll/Gemfile.lock
